@@ -63,26 +63,36 @@ describe("GPUMarketplace", function () {
   });
 
   describe("Renting GPUs", function () {
-    beforeEach(async function () {
-      await marketplace.connect(provider).listGPU("High-end GPU", ethers.parseEther("10"));
-      await computeToken.connect(renter).approve(marketplace.address, ethers.parseEther("1000"));
-    });
+   beforeEach(async function () {
+  // List the GPU before trying to rent it
+  await marketplace.connect(provider).listGPU("High-end GPU", ethers.parseEther("10"));
+  
+  // Approve the marketplace to spend renter's tokens
+  await computeToken.connect(renter).approve(marketplace.address, ethers.parseEther("1000"));
+});
 
-    it("Should rent a GPU", async function () {
-      await expect(marketplace.connect(renter).rentGPU(1, 5))
-        .to.emit(marketplace, "GPURented")
-        .withArgs(1, renter.address, 5);
+it("Should rent a GPU", async function () {
+  // Ensure GPU is listed before renting
+  const gpu = await marketplace.gpus(1);
+  expect(gpu.provider).to.equal(provider.address);
 
-      const gpu = await marketplace.gpus(1);
-      expect(gpu.available).to.be.false;
+  // Try to rent the GPU
+  await expect(marketplace.connect(renter).rentGPU(1, 5))
+    .to.emit(marketplace, "GPURented")
+    .withArgs(1, renter.address, 5);
 
-      // Check token transfer
-      expect(await computeToken.balanceOf(provider.address)).to.equal(ethers.parseEther("50"));
+  // Check if the GPU is no longer available
+  const updatedGPU = await marketplace.gpus(1);
+  expect(updatedGPU.available).to.be.false;
 
-      // Check reputation increase
-      expect(await reputation.getReputation(provider.address, true)).to.equal(1);
-      expect(await reputation.getReputation(renter.address, false)).to.equal(1);
-    });
+  // Check token transfer
+  expect(await computeToken.balanceOf(provider.address)).to.equal(ethers.parseEther("50"));
+
+  // Check reputation increase
+  expect(await reputation.getReputation(provider.address, true)).to.equal(1);
+  expect(await reputation.getReputation(renter.address, false)).to.equal(1);
+});
+
 
     it("Should not rent an unavailable GPU", async function () {
       await marketplace.connect(renter).rentGPU(1, 5);
