@@ -1,6 +1,7 @@
 # **DeGPUhub - Decentralized GPU Marketplace**
 
 **# Overview**
+
 DeGPUhub is a decentralized marketplace built on the Edge Matrix Chain (EMC) where users can rent out GPUs for high-performance compute tasks, such as AI model training or complex scientific computations. The platform integrates a tokenized governance and reputation system, empowering both GPU providers and renters through decentralized control and trust management.
 
 This project is developed for the Edge Matrix Chain (EMC) 2024 Q4 Hackathon, which focuses on AI and Decentralized Physical Infrastructure Networks (DePIN). The goal of the hackathon is to explore decentralized infrastructure and AI computing, providing scalable, trustless solutions to real-world problems.
@@ -13,6 +14,7 @@ This project is developed for the Edge Matrix Chain (EMC) 2024 Q4 Hackathon, whi
 - IPFS Integration: Backend storage and GPU-related data are handled via IPFS, ensuring decentralized and efficient data management.
 
 **Hackathon Goals**
+
 Track: This project falls under the AI and Decentralized Physical Infrastructure Networks (DePIN) track, as it provides a decentralized solution for renting GPU resources, necessary for AI computation and other high-performance computing tasks.
 
 **Judging Criteria**
@@ -25,6 +27,7 @@ Track: This project falls under the AI and Decentralized Physical Infrastructure
 - Hardware and AI Integration: DeGPUhub focuses on enabling efficient GPU utilization, essential for AI training, in a decentralized environment.
 
 **Smart Contracts**
+
 The core smart contracts in DeGPUhub include:
 
 1. ComputeToken.sol
@@ -73,13 +76,18 @@ cd DeGPUhub
 **Install the required dependencies:**
 - npm install
 - Compile the smart contracts:
+
 npx hardhat compile
 - Run the tests to verify the smart contract logic:
+
 npx hardhat test
 - Running the Project
+
 Start Local Development Environment: Ensure you're running a local or testnet blockchain environment compatible with Hardhat (e.g., Edge Matrix Chain).
 - Deploy Contracts: To deploy the contracts to a test network:
+
 npx hardhat run ignition/modules/deploy.js --network <network_name>
+
 Here are the deployed contract addresses:
    - ComputeToken deployed to: 0x359451AC3C73827A7653C0Ab7D30243844a55447
    - Reputation deployed to: 0x069F92465a8795a06A28B1e85f320D57CE29Bc8F
@@ -87,6 +95,7 @@ Here are the deployed contract addresses:
    - Governance deployed to: 0xe34c86A03F17E29F77beeE7c898Adae4dD578006
 
 - Test Coverage
+
 The project includes a comprehensive test suite for all core functionalities:
 
 - Governance: Tests for proposal creation, voting, and execution.
@@ -95,7 +104,9 @@ The project includes a comprehensive test suite for all core functionalities:
 - ComputeToken: Tests for token minting, approval, and transfers.
 
 - To run the tests:
+
 npx hardhat test
+
 test results: I have 25/25 test case passed for all contracts
 
 **Future Development**
@@ -103,8 +114,10 @@ test results: I have 25/25 test case passed for all contracts
 - Optimized GPU Usage: Implement machine learning algorithms to optimize GPU usage based on real-time availability and demand.
 
 **License**
+
 This project is licensed under the MIT License. 
 
 **Acknowledgments**
+
 Special thanks to the Edge Matrix Chain (EMC) 2024 Q4 Hackathon organizers and sponsors for fostering innovation in the decentralized physical infrastructure and AI space.
 
