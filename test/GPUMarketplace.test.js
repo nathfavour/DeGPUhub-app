@@ -70,40 +70,50 @@ describe("GPUMarketplace", function () {
     });
   });
 
+  describe("Listing GPUs", function () {
+    it("Should list a new GPU", async function () {
+      await expect(marketplace.connect(provider).listGPU("High-end GPU", ethers.parseEther("10")))
+        .to.emit(marketplace, "GPUListed")
+        .withArgs(1, provider.address, ethers.parseEther("10"));
+
+      const gpu = await marketplace.gpus(1);
+      expect(gpu.provider).to.equal(provider.address);
+      expect(gpu.description).to.equal("High-end GPU");
+      expect(gpu.pricePerHour).to.equal(ethers.parseEther("10"));
+      expect(gpu.available).to.be.true;
+    });
+  });
+
   describe("Renting GPUs", function () {
     beforeEach(async function () {
       // List the GPU before trying to rent it
       await marketplace.connect(provider).listGPU("High-end GPU", ethers.parseEther("10"));
       
-      // Get the marketplace address
-      const marketplaceAddress = await marketplace.getAddress();
-      
       // Approve the marketplace to spend renter's tokens
-      await computeToken.connect(renter).approve(marketplaceAddress, ethers.parseEther("1000"));
+      await computeToken.connect(renter).approve(marketplace.address, ethers.parseEther("1000"));
     });
-  
+
     it("Should rent a GPU", async function () {
       // Ensure GPU is listed before renting
       const gpu = await marketplace.gpus(1);
       expect(gpu.provider).to.equal(provider.address);
-  
+
       // Try to rent the GPU
       await expect(marketplace.connect(renter).rentGPU(1, 5))
         .to.emit(marketplace, "GPURented")
         .withArgs(1, renter.address, 5);
-  
+
       // Check if the GPU is no longer available
       const updatedGPU = await marketplace.gpus(1);
       expect(updatedGPU.available).to.be.false;
-  
+
       // Check token transfer
       expect(await computeToken.balanceOf(provider.address)).to.equal(ethers.parseEther("50"));
-  
+
       // Check reputation increase
       expect(await reputation.getReputation(provider.address, true)).to.equal(1);
       expect(await reputation.getReputation(renter.address, false)).to.equal(1);
     });
-  
 
     it("Should not rent an unavailable GPU", async function () {
       await marketplace.connect(renter).rentGPU(1, 5);
@@ -111,8 +121,12 @@ describe("GPUMarketplace", function () {
     });
 
     it("Should not rent with insufficient tokens", async function () {
-      await computeToken.connect(renter).approve(marketplace.address, ethers.parseEther("40"));
-      await expect(marketplace.connect(renter).rentGPU(1, 5)).to.be.revertedWith("Payment failed");
+      // Approve a smaller amount of tokens
+      await computeToken.connect(renter).approve(marketplaceAddress, ethers.parseEther("40"));
+
+      // Attempt to rent the GPU
+      await expect(marketplace.connect(renter).rentGPU(1, 5))
+        .to.be.revertedWith("Payment failed");
     });
   });
 

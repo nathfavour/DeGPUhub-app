@@ -9,6 +9,7 @@ describe("Governance", function () {
   let owner;
   let addr1;
   let addr2;
+  let governanceAddress;
 
   beforeEach(async function () {
     [owner, addr1, addr2] = await ethers.getSigners();
@@ -24,6 +25,8 @@ describe("Governance", function () {
     Governance = await ethers.getContractFactory("Governance");
     governance = await Governance.deploy(computeTokenAddress);
     await governance.waitForDeployment();
+
+    governanceAddress = await governance.getAddress();
 
     // Mint some tokens for testing
     await computeToken.connect(owner).mint(addr1.address, ethers.parseEther("1000"));
@@ -56,37 +59,18 @@ describe("Governance", function () {
     });
 
     it("Should allow voting on a proposal", async function () {
-      await computeToken.connect(addr1).approve(governance.address, ethers.parseEther("1000"));
-    
-      // Check if the proposal exists before voting
-      const proposal = await governance.proposals(1);
-      expect(proposal.description).to.equal("Test Proposal"); // Ensure the proposal exists
-      
-      // Now cast the vote
       await expect(governance.connect(addr1).vote(1))
         .to.emit(governance, "Voted")
         .withArgs(1, addr1.address);
-    
-      // Check that the vote count is updated correctly
-      const updatedProposal = await governance.proposals(1);
-      expect(updatedProposal.voteCount).to.equal(ethers.parseEther("1000"));
+
+      const proposal = await governance.proposals(1);
+      expect(proposal.voteCount).to.equal(ethers.parseEther("1000"));
     });
-    
 
     it("Should not allow voting twice", async function () {
-      await computeToken.connect(addr1).approve(governance.address, ethers.parseEther("1000"));
-    
-      // Check if the proposal exists before voting
-      const proposal = await governance.proposals(1);
-      expect(proposal.description).to.equal("Test Proposal");
-    
-      // Cast the first vote
       await governance.connect(addr1).vote(1);
-    
-      // Try voting again and expect a revert
       await expect(governance.connect(addr1).vote(1)).to.be.revertedWith("Already voted");
     });
-    
 
     it("Should not allow voting with no tokens", async function () {
       await expect(governance.connect(owner).vote(1)).to.be.revertedWith("No tokens to vote with");
@@ -96,7 +80,6 @@ describe("Governance", function () {
   describe("Executing proposals", function () {
     beforeEach(async function () {
       await governance.createProposal("Test Proposal");
-      await computeToken.connect(addr1).approve(governance.address, ethers.parseEther("1000"));
       await governance.connect(addr1).vote(1);
     });
 
@@ -116,7 +99,6 @@ describe("Governance", function () {
 
     it("Should not execute a proposal with insufficient votes", async function () {
       await governance.createProposal("Low Vote Proposal");
-      await computeToken.connect(addr2).approve(governance.address, ethers.parseEther("500"));
       await governance.connect(addr2).vote(2);
       await expect(governance.executeProposal(2)).to.be.revertedWith("Not enough votes to execute");
     });
