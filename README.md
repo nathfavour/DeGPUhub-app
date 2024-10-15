@@ -1,5 +1,6 @@
-DeGPUhub - Decentralized GPU Marketplace
-Overview
+**DeGPUhub - Decentralized GPU Marketplace**
+
+# Overview
 DeGPUhub is a decentralized marketplace built on the Edge Matrix Chain (EMC) where users can rent out GPUs for high-performance compute tasks, such as AI model training or complex scientific computations. The platform integrates a tokenized governance and reputation system, empowering both GPU providers and renters through decentralized control and trust management.
 
 This project is developed for the Edge Matrix Chain (EMC) 2024 Q4 Hackathon, which focuses on AI and Decentralized Physical Infrastructure Networks (DePIN). The goal of the hackathon is to explore decentralized infrastructure and AI computing, providing scalable, trustless solutions to real-world problems.
