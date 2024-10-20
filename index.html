@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/"/>
+    <meta charset="utf-8"/>
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Roboto);
+      html, body {
+        font-family: 'Roboto', sans-serif;
+        width: 100%;
+        min-height: 100vh;
+        padding: 0;
+        margin: 0;
+      }
+      h1 {
+        font-size: 4rem;
+        margin: unset;
+      }
+    </style>
+    <link href="manifest.json" rel="manifest"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
+    <script async src="flutter_bootstrap.js"></script>
+    <link href="styles.css" rel="stylesheet"/>
+    <!--$-->
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--/-->
+    <script src="pages/home.client.dart.js" defer></script>
+    <style>
+      .counter {
+        display: flex;
+        align-items: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-top-style: solid;
+        border-bottom-style: solid;
+        border-top-color: #01589B;
+        border-bottom-color: #01589B;
+        border-top-width: 1px;
+        border-bottom-width: 1px;
+      }
+      .counter button {
+        font-size: 2rem;
+        width: 2em;
+        height: 2em;
+        border: unset;
+        cursor: pointer;
+        border-radius: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+      }
+      .counter button:hover {
+        background-color: #0001;
+      }
+      .counter span {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        box-sizing: border-box;
+        min-width: 2.5em;
+        color: #01589B;
+        font-size: 4rem;
+        text-align: center;
+      }
+      header {
+        display: flex;
+        justify-content: center;
+        padding: 1em;
+      }
+      header nav div.active {
+        position: relative;
+      }
+      header nav div.active::before {
+        content: "";
+        display: block;
+        height: 2px;
+        border-radius: 1px;
+        position: absolute;
+        left: 20px;
+        bottom: 0.5em;
+        right: 20px;
+        background-color: white;
+      }
+      ol {
+        max-width: 500px;
+      }
+      .main {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+      }
+      .main section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <!--@pages/home-->
+      <section>
+        <html>
+          <head>
+            <meta/>
+            <meta/>
+            <title> DeGPUhub </title>
+            <script src="https://cdn.tailwindcss.com"></script>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
+            <style>
+                body { font-family: &#39;Inter&#39;, sans-serif; background: radial-gradient(circle, rgba(0, 0, 139, 1) 0%, rgba(0, 255, 255, 1) 100%); }   
+            </style>
+          </head>
+          <body class="text-white">
+            <header class="flex justify-between items-center p-6 fixed top-4 w-full bg-transparent">
+              <div class="flex items-center space-x-4">
+                <img class="w-10 h-10" alt="Estate Protocol Logo" width="80" height="80" src="/images/logo.png"/>
+                <span class="font-bold text-lg"> DeGPUhub </span>
+              </div>
+              <nav class="hidden md:flex space-x-6">
+                <a class="hover:underline" href="#"> Home </a>
+                <a class="hover:underline" href="#"> Marketplace </a>
+                <a class="hover:underline" href="#"> About Us </a>
+                <a class="hover:underline" href="#"> Features </a>
+                <a class="hover:underline" href="#"> Our team </a>
+                <a class="hover:underline" href="#"> FAQ </a>
+              </nav>
+              <div class="hidden md:flex items-center space-x-4">
+                <a class="text-xl" href="#"><i class="fab fa-telegram"></i></a>
+                <a class="text-xl" href="#"><i class="fab fa-discord"></i></a>
+                <a class="text-xl" href="#"><i class="fab fa-github"></i></a>
+                <a class="text-xl" href="#"></a>
+                <a class="bg-gradient-to-r from-green-400 to-blue-500 text-white px-4 py-2 rounded-full" href="#"> Connect </a>
+              </div>
+              <div class="md:hidden"><button id="menu-btn" class="text-xl"><i class="fas fa-bars"></i></button></div>
+            </header>
+            <nav id="mobile-menu" class="hidden md:hidden flex flex-col space-y-4 p-6">
+              <a class="hover:underline" href="#"> Home </a>
+              <a class="hover:underline" href="#"> Marketplace </a>
+              <a class="hover:underline" href="#"> About Us </a>
+              <a class="hover:underline" href="#"> Join the list </a>
+              <a class="hover:underline" href="#"> Docs </a>
+              <a class="hover:underline" href="#"> NFT your property </a>
+              <div class="flex space-x-4">
+                <a class="text-xl" href="#"><i class="fab fa-twitter"></i></a>
+                <a class="text-xl" href="#"><i class="fab fa-telegram"></i></a>
+                <a class="text-xl" href="#"><i class="fab fa-medium"></i></a>
+                <a class="text-xl" href="#"><i class="fab fa-reddit"></i></a>
+              </div>
+              <a class="bg-gradient-to-r from-green-400 to-blue-500 text-white px-4 py-2 rounded-full" href="#"> Register </a>
+            </nav>
+            <main class="flex flex-col items-center justify-center text-center mt-20 px-4">
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <h1 class=" text-4xl md:text-6xl font-bold"> World&#39;s first AI</h1>
+              <h1 class="text-4xl md:text-6xl font-bold"> decentralized marketplace </h1>
+              <h1 class="text-4xl md:text-6xl font-bold">
+                 for 
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-500"> GPUs </span>
+              </h1>
+              <div class="mt-10 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+                <a class="bg-white text-blue-900 px-6 py-3 rounded-full flex items-center space-x-2" href="#">
+                  <svg class="w-5 h-5" aria-hidden="true" viewBox="0 0 24 24" width="24px" height="24px">
+                    <path d="M12.5.75C6.146.75 1 5.896 1 12.25c0 5.089 3.292 9.387 7.863 10.91.575.101.79-.244.79-.546 0-.273-.014-1.178-.014-2.142-2.889.532-3.636-.704-3.866-1.35-.13-.331-.69-1.352-1.18-1.625-.402-.216-.977-.748-.014-.762.906-.014 1.553.834 1.769 1.179 1.035 1.74 2.688 1.25 3.349.948.1-.747.402-1.25.733-1.538-2.559-.287-5.232-1.279-5.232-5.678 0-1.25.445-2.285 1.178-3.09-.115-.288-.517-1.467.115-3.048 0 0 .963-.302 3.163 1.179.92-.259 1.897-.388 2.875-.388.977 0 1.955.13 2.875.388 2.2-1.495 3.162-1.179 3.162-1.179.633 1.581.23 2.76.115 3.048.733.805 1.179 1.825 1.179 3.09 0 4.413-2.688 5.39-5.247 5.678.417.36.776 1.05.776 2.128 0 1.538-.014 2.774-.014 3.162 0 .302.216.662.79.547C20.709 21.637 24 17.324 24 12.25 24 5.896 18.854.75 12.5.75Z"/>
+                  </svg>
+                  <span>View source</span>
+                </a>
+                <a id="connect-wallet-link" class="bg-transparent border border-white text-white px-6 py-3 rounded-full flex items-center space-x-2" id="connect-btn" href="#">
+                  <img class="w-5 h-5" alt="Open Icon" width="20" height="20" src="https://seeklogo.com/images/M/metamask-logo-09EDE53DBD-seeklogo.com.png"/>
+                  <span>Connect wallet</span>
+                </a>
+                <div>
+                  <div class="overlay hidden" id="overlay">
+                    <div class="overlay-content" id="overlay-content">
+                      <div class="hidden" id="mobile-message"><p>Open in desktop to connect</p></div>
+                      <div class="hidden" id="desktop-content"><p>Connecting to MetaMask...</p></div>
+                    </div>
+                  </div>
+                  <script src="/scripts/connect.js"></script>
+                </div>
+              </div>
+            </main>
+            <script src="/scripts/mobilemenu.js"></script>
+          </body>
+        </html>
+        <head>
+          <script src="https://cdn.tailwindcss.com"></script>
+          <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+          <style>
+                      @import url(&#39;https:&#47;&#47;fonts.googleapis.com&#47;css2?family=Roboto:wght@400;700&amp;display=swap&#39;);
+                      body {
+                        font-family: &#39;Roboto&#39;, sans-serif;
+                      }
+                      .text-gradient {
+                        background: linear-gradient(90deg, #00C6FF 0%, #0072FF 100%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                      }
+                      .bg-gradient {
+                        background: linear-gradient(135deg, #0a0f24 0%, #1a2a6c 50%, #b21f1f 100%);
+                      }
+                    
+          </style>
+        </head>
+        <body class="bg-gradient text-white">
+          <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2">
+              <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">Democratising real estate investing using <span class="text-gradient">blockchain technology</span></h1>
+              <p class="text-lg md:text-xl mb-6">
+                Estate Protocol is a platform that&#39;s going to remove the friction from real estate investments. We are launching a marketplace where we would create custom non-fungible tokens for each property listed, enabling fractional real estate investing that is accessible to everyone.
+              </p>
+              <p class="text-lg md:text-xl">
+                <span class="inline-block w-8 h-1 bg-green-500 mr-2"></span>We aim to bring the entry ticket down to 
+                <span class="font-bold">under $100</span>, reducing it by over 99%.
+              </p>
+            </div>
+            <div class="md:w-1/2 flex flex-wrap justify-center mt-8 md:mt-0">
+              <div class="w-1/3 p-2">
+                <img alt="Cryptocurrency icon 1" class="w-full h-full object-cover rounded-lg shadow-lg" src="https://placehold.co/100x100"/>
+              </div>
+              <div class="w-1/3 p-2">
+                <img alt="Cryptocurrency icon 2" class="w-full h-full object-cover rounded-lg shadow-lg" src="https://placehold.co/100x100"/>
+              </div>
+              <div class="w-1/3 p-2">
+                <img alt="Cryptocurrency icon 3" class="w-full h-full object-cover rounded-lg shadow-lg" src="https://placehold.co/100x100"/>
+              </div>
+              <div class="w-1/3 p-2">
+                <img alt="Cryptocurrency icon 4" class="w-full h-full object-cover rounded-lg shadow-lg" src="https://placehold.co/100x100"/>
+              </div>
+              <div class="w-1/3 p-2">
+                <img alt="Cryptocurrency icon 5" class="w-full h-full object-cover rounded-lg shadow-lg" src="https://placehold.co/100x100"/>
+              </div>
+              <div class="w-1/3 p-2">
+                <img alt="Cryptocurrency icon 6" class="w-full h-full object-cover rounded-lg shadow-lg" src="https://placehold.co/100x100"/>
+              </div>
+              <div class="w-1/3 p-2">
+                <img alt="Cryptocurrency icon 7" class="w-full h-full object-cover rounded-lg shadow-lg" src="https://placehold.co/100x100"/>
+              </div>
+              <div class="w-1/3 p-2">
+                <img alt="Cryptocurrency icon 8" class="w-full h-full object-cover rounded-lg shadow-lg" src="https://placehold.co/100x100"/>
+              </div>
+              <div class="w-1/3 p-2">
+                <img alt="Cryptocurrency icon 9" class="w-full h-full object-cover rounded-lg shadow-lg" src="https://placehold.co/100x100"/>
+              </div>
+            </div>
+          </div>
+        </body>
+        <html>
+          <head>
+            <script src="https://cdn.tailwindcss.com"></script>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
+            <style>
+                          body {
+                            font-family: &#39;Inter&#39;, sans-serif;
+                          }
+                        
+            </style>
+          </head>
+          <body class="bg-gradient-to-b from-blue-900 to-blue-800 text-white">
+            <div class="container mx-auto py-16 px-4">
+              <h1 class="text-center text-4xl font-bold mb-12">Our <span class="text-blue-400">Features</span></h1>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-blue-900 bg-opacity-75 p-8 rounded-lg shadow-lg relative">
+                  <img alt="Stack of coins" class="absolute -top-12 left-1/2 transform -translate-x-1/2" height="100" src="https://placehold.co/100x100" width="100"/>
+                  <h2 class="text-xl font-bold mt-16 mb-4">Cash-out your yield everyday</h2>
+                  <p class="mb-4">
+                    Estate Protocol will have high yield properties, owners can cash out the income their property generates every day.
+                  </p>
+                  <a class="text-blue-400 flex items-center" href="#"><span class="mr-2">→</span></a>
+                </div>
+                <div class="bg-blue-900 bg-opacity-75 p-8 rounded-lg shadow-lg">
+                  <h2 class="text-xl font-bold mb-4">Control over governance</h2>
+                  <p class="mb-4">
+                    The property owners would be able to vote on every decision relating to their property in a democratic way.
+                  </p>
+                  <a class="text-blue-400 flex items-center" href="#"><span class="mr-2">→</span></a>
+                </div>
+                <div class="bg-blue-900 bg-opacity-75 p-8 rounded-lg shadow-lg">
+                  <h2 class="text-xl font-bold mb-4">One-click diversification</h2>
+                  <p class="mb-4">Veteran investors would be able to diversify their portfolio across markets with ease.</p>
+                  <a class="text-blue-400 flex items-center" href="#"><span class="mr-2">→</span></a>
+                </div>
+                <div class="bg-blue-900 bg-opacity-75 p-8 rounded-lg shadow-lg relative">
+                  <img alt="Puzzle pieces" class="absolute -bottom-12 left-1/2 transform -translate-x-1/2" height="100" src="https://placehold.co/100x100" width="100"/>
+                  <h2 class="text-xl font-bold mt-16 mb-4">Fully legally compliant</h2>
+                  <p class="mb-4">
+                    Estate Protocol would be fully compliant with the law wherever we list, to make sure our investors are protected by the legal system.
+                  </p>
+                  <a class="text-blue-400 flex items-center" href="#"><span class="mr-2">→</span></a>
+                </div>
+              </div>
+            </div>
+          </body>
+        </html>
+        <html>
+          <head>
+            <script src="https://cdn.tailwindcss.com"></script>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+            <style>
+                          @import url(&#39;https:&#47;&#47;fonts.googleapis.com&#47;css2?family=Roboto:wght@400;700&amp;display=swap&#39;);
+                          body {
+                            font-family: &#39;Roboto&#39;, sans-serif;
+                          }
+                        
+            </style>
+          </head>
+          <body class="bg-[#0A0F24] text-white">
+            <div class="max-w-4xl mx-auto py-12 px-4">
+              <h1 class="text-4xl font-bold text-center mb-8">FAQs</h1>
+              <div class="space-y-8">
+                <div class="faq-item">
+                  <div class="flex justify-between items-center cursor-pointer">
+                    <h2 class="text-xl font-bold">
+                      If the project is going to be based on ERC1155, why are you releasing your token on Binance Smart Chain?
+                    </h2>
+                    <i class="fas fa-plus text-xl"></i>
+                  </div>
+                  <p class="mt-4 text-base hidden">
+                    Our mission with this project is to make real estate investments accessible to everyone. Right now, the fees on the Ethereum network are unaffordable for a large number of people. They are working to resolve the problem but till then we would rather put in extra work in the development phase by building a cross-chain swap, instead of excluding the people who cannot afford the current fees on the Ethereum network.
+                  </p>
+                </div>
+                <hr class="border-gray-600"/>
+                <div class="faq-item">
+                  <div class="flex justify-between items-center cursor-pointer">
+                    <h2 class="text-xl font-bold">Will the prices of the properties be as volatile as cryptocurrencies?</h2>
+                    <i class="fas fa-plus text-xl"></i>
+                  </div>
+                  <p class="mt-4 text-base hidden"></p>
+                </div>
+                <hr class="border-gray-600"/>
+                <div class="faq-item">
+                  <div class="flex justify-between items-center cursor-pointer">
+                    <h2 class="text-xl font-bold">Why should we buy the ESTATE token?</h2>
+                    <i class="fas fa-plus text-xl"></i>
+                  </div>
+                  <p class="mt-4 text-base hidden"></p>
+                </div>
+              </div>
+            </div>
+            <script>
+                          document.querySelectorAll(&#39;.faq-item&#39;).forEach(item =&gt; {
+                            item.addEventListener(&#39;click&#39;, () =&gt; {
+                              const description = item.querySelector(&#39;p&#39;);
+                              const icon = item.querySelector(&#39;i&#39;);
+                              const isOpen = !description.classList.contains(&#39;hidden&#39;);
+              
+                              &#47;&#47; Close all descriptions
+                              document.querySelectorAll(&#39;.faq-item p&#39;).forEach(p =&gt; p.classList.add(&#39;hidden&#39;));
+                              document.querySelectorAll(&#39;.faq-item i&#39;).forEach(i =&gt; i.classList.replace(&#39;fa-minus&#39;, &#39;fa-plus&#39;));
+              
+                              &#47;&#47; Toggle the clicked description
+                              if (!isOpen) {
+                                description.classList.remove(&#39;hidden&#39;);
+                                icon.classList.replace(&#39;fa-plus&#39;, &#39;fa-minus&#39;);
+                              }
+                            });
+                          });
+                        
+            </script>
+          </body>
+        </html>
+        <footer class="bg-gradient-to-b from-blue-900 to-blue-800 text-white w-full">
+          <div class="container mx-auto py-16 px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+              <div class="flex flex-col items-start">
+                <img alt="Estate Protocol Logo" class="mb-4" height="100" src="/images/logo.png" width="100"/>
+                <h1 class="text-2xl font-bold">DeGPUhub</h1>
+              </div>
+              <div class="flex flex-col">
+                <h2 class="text-xl font-bold mb-4">Explore</h2>
+                <ul class="space-y-2"><li>Home</li><li>Marketplace</li><li>About Us</li><li>Features</li><li>Our team</li><li>FAQ</li></ul>
+              </div>
+              <div class="flex flex-col">
+                <h2 class="text-xl font-bold mb-4">Follow us</h2>
+                <div class="flex space-x-4"><i class="fab fa-telegram"></i><i class="fab fa-discord"></i><i class="fab fa-github"></i></div>
+              </div>
+              <div class="flex flex-col">
+                <h2 class="text-xl font-bold mb-4">Questions? Suggestions?</h2>
+                <p>Write to us on telegram!</p>
+                <p class="mt-2"></p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </section>
+      <!--/@pages/home-->
+    </div>
+  </body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/"/>
+    <meta charset="utf-8"/>
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Roboto);
+      html, body {
+        font-family: 'Roboto', sans-serif;
+        width: 100%;
+        min-height: 100vh;
+        padding: 0;
+        margin: 0;
+      }
+      h1 {
+        font-size: 4rem;
+        margin: unset;
+      }
+    </style>
+    <link href="manifest.json" rel="manifest"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
+    <script async src="flutter_bootstrap.js"></script>
+    <link href="styles.css" rel="stylesheet"/>
+    <!--$-->
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--/-->
+    <style>
+      .counter {
+        display: flex;
+        align-items: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-top-style: solid;
+        border-bottom-style: solid;
+        border-top-color: #01589B;
+        border-bottom-color: #01589B;
+        border-top-width: 1px;
+        border-bottom-width: 1px;
+      }
+      .counter button {
+        font-size: 2rem;
+        width: 2em;
+        height: 2em;
+        border: unset;
+        cursor: pointer;
+        border-radius: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+      }
+      .counter button:hover {
+        background-color: #0001;
+      }
+      .counter span {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        box-sizing: border-box;
+        min-width: 2.5em;
+        color: #01589B;
+        font-size: 4rem;
+        text-align: center;
+      }
+      header {
+        display: flex;
+        justify-content: center;
+        padding: 1em;
+      }
+      header nav div.active {
+        position: relative;
+      }
+      header nav div.active::before {
+        content: "";
+        display: block;
+        height: 2px;
+        border-radius: 1px;
+        position: absolute;
+        left: 20px;
+        bottom: 0.5em;
+        right: 20px;
+        background-color: white;
+      }
+      ol {
+        max-width: 500px;
+      }
+      .main {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+      }
+      .main section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="bg-gray-100 min-h-screen flex">
+        <div class="w-20 bg-white h-screen shadow-lg flex flex-col items-center py-6">
+          <div class="mb-8">
+            <div class="bg-indigo-600 text-white rounded-full w-12 h-12 flex items-center justify-center"><span class="text-2xl font-bold">P</span></div>
+          </div>
+          <div class="flex flex-col space-y-8">
+            <i class="fas fa-home text-gray-400 text-xl"></i>
+            <i class="fas fa-search text-gray-400 text-xl"></i>
+            <i class="fas fa-heart text-gray-400 text-xl"></i>
+            <i class="fas fa-user text-gray-400 text-xl"></i>
+          </div>
+        </div>
+        <div class="flex-1 p-6">
+          <div class="flex justify-between items-center mb-6">
+            <div class="flex items-center space-x-4">
+              <input class="px-4 py-2 rounded-full bg-gray-200 focus:outline-none" placeholder="Search" type="text"/>
+              <button class="px-4 py-2 bg-indigo-600 text-white rounded-full">All items</button>
+              <button class="px-4 py-2 bg-white text-gray-600 rounded-full">Art</button>
+              <button class="px-4 py-2 bg-white text-gray-600 rounded-full">Sports</button>
+              <button class="px-4 py-2 bg-white text-gray-600 rounded-full">Gaming</button>
+              <button class="px-4 py-2 bg-white text-gray-600 rounded-full">Utility</button>
+              <button class="px-4 py-2 bg-white text-gray-600 rounded-full">Cards</button>
+            </div>
+            <div class="flex items-center space-x-4">
+              <i class="fas fa-bell text-gray-400 text-xl"></i>
+              <div class="flex items-center space-x-2">
+                <img class="w-10 h-10 rounded-full" alt="User avatar" src="https://storage.googleapis.com/a1aa/image/Sne9eLbIMyp3Sku4U5cJYLLBlWVgVfMMghTBC0SztrmoCzQnA.jpg"/>
+                <div><p class="text-gray-800 font-semibold">Adam Lee</p><p class="text-gray-400 text-sm">@adamlee</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-blue-900 text-white rounded-lg p-6 mb-6 flex justify-between items-center">
+            <div>
+              <h1 class="text-3xl font-bold mb-2">Discover, collect, sell, and create your own <span class="text-blue-400">NFTs</span>.</h1>
+              <div class="flex space-x-4">
+                <button class="px-4 py-2 bg-blue-600 rounded-full">Discover Now</button>
+                <button class="px-4 py-2 bg-white text-blue-600 rounded-full">Create your own</button>
+              </div>
+            </div>
+            <img class="w-48 h-48 rounded-lg" alt="NFT Banner" src="https://storage.googleapis.com/a1aa/image/k6RWiv1cgaJoKxOYMzf6sRxazcjU0GE9OZCqtFdvtfPNhZoTA.jpg"/>
+          </div>
+          <div class="mb-6">
+            <h2 class="text-xl font-semibold mb-4">Trending Creators</h2>
+            <div class="flex space-x-4">
+              <div class="w-16 h-16 rounded-full border-4 border-blue-400">
+                <img class="w-full h-full rounded-full" alt="Creator 1" src="https://storage.googleapis.com/a1aa/image/yCL5dxKQgJpvPtq9OjmLGJONTNyeNeURomntNtGXphUQhZoTA.jpg"/>
+              </div>
+              <div class="w-16 h-16 rounded-full border-4 border-blue-400">
+                <img class="w-full h-full rounded-full" alt="Creator 2" src="https://storage.googleapis.com/a1aa/image/yCL5dxKQgJpvPtq9OjmLGJONTNyeNeURomntNtGXphUQhZoTA.jpg"/>
+              </div>
+              <div class="w-16 h-16 rounded-full border-4 border-blue-400">
+                <img class="w-full h-full rounded-full" alt="Creator 3" src="https://storage.googleapis.com/a1aa/image/yCL5dxKQgJpvPtq9OjmLGJONTNyeNeURomntNtGXphUQhZoTA.jpg"/>
+              </div>
+              <div class="w-16 h-16 rounded-full border-4 border-blue-400">
+                <img class="w-full h-full rounded-full" alt="Creator 4" src="https://storage.googleapis.com/a1aa/image/yCL5dxKQgJpvPtq9OjmLGJONTNyeNeURomntNtGXphUQhZoTA.jpg"/>
+              </div>
+              <div class="w-16 h-16 rounded-full border-4 border-blue-400">
+                <img class="w-full h-full rounded-full" alt="Creator 5" src="https://storage.googleapis.com/a1aa/image/yCL5dxKQgJpvPtq9OjmLGJONTNyeNeURomntNtGXphUQhZoTA.jpg"/>
+              </div>
+              <div class="w-16 h-16 rounded-full border-4 border-blue-400">
+                <img class="w-full h-full rounded-full" alt="Creator 6" src="https://storage.googleapis.com/a1aa/image/yCL5dxKQgJpvPtq9OjmLGJONTNyeNeURomntNtGXphUQhZoTA.jpg"/>
+              </div>
+              <a class="text-blue-600 self-center" href="#">View all</a>
+            </div>
+          </div>
+          <div class="mb-6">
+            <h2 class="text-xl font-semibold mb-4">Trending Auctions</h2>
+            <div class="grid grid-cols-3 gap-6">
+              <div class="bg-white rounded-lg shadow-lg p-4">
+                <img class="w-full h-48 rounded-lg mb-4" alt="Auction 1" src="https://storage.googleapis.com/a1aa/image/fIAIcF7Ylz0kekHJnnpDvXvgig4oyRwDw7TOJVv4ubzLhZoTA.jpg"/>
+                <h3 class="text-lg font-semibold mb-2">Abstract Art 187</h3>
+                <p class="text-gray-600 mb-2">Last Bid: 1.47 ETH</p>
+                <p class="text-blue-600 font-semibold mb-4">$4,347.86</p>
+                <div class="flex justify-between items-center">
+                  <button class="px-4 py-2 bg-blue-600 text-white rounded-full">Place a bid</button>
+                  <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full">History</button>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg shadow-lg p-4">
+                <img class="w-full h-48 rounded-lg mb-4" alt="Auction 2" src="https://storage.googleapis.com/a1aa/image/fIAIcF7Ylz0kekHJnnpDvXvgig4oyRwDw7TOJVv4ubzLhZoTA.jpg"/>
+                <h3 class="text-lg font-semibold mb-2">Abstract Art 187</h3>
+                <p class="text-gray-600 mb-2">Last Bid: 1.47 ETH</p>
+                <p class="text-blue-600 font-semibold mb-4">$4,347.86</p>
+                <div class="flex justify-between items-center">
+                  <button class="px-4 py-2 bg-blue-600 text-white rounded-full">Place a bid</button>
+                  <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full">History</button>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg shadow-lg p-4">
+                <img class="w-full h-48 rounded-lg mb-4" alt="Auction 3" src="https://storage.googleapis.com/a1aa/image/fIAIcF7Ylz0kekHJnnpDvXvgig4oyRwDw7TOJVv4ubzLhZoTA.jpg"/>
+                <h3 class="text-lg font-semibold mb-2">Abstract Art 187</h3>
+                <p class="text-gray-600 mb-2">Last Bid: 1.47 ETH</p>
+                <p class="text-blue-600 font-semibold mb-4">$4,347.86</p>
+                <div class="flex justify-between items-center">
+                  <button class="px-4 py-2 bg-blue-600 text-white rounded-full">Place a bid</button>
+                  <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full">History</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-80 p-6">
+          <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+            <div class="flex items-center mb-4">
+              <img class="w-10 h-10 rounded-full mr-4" alt="User avatar" src="https://storage.googleapis.com/a1aa/image/Sne9eLbIMyp3Sku4U5cJYLLBlWVgVfMMghTBC0SztrmoCzQnA.jpg"/>
+              <div>
+                <p class="text-gray-800 font-semibold">Allison Black</p>
+                <p class="text-gray-400 text-sm">@allison</p>
+              </div>
+            </div>
+            <img class="w-full h-48 rounded-lg mb-4" alt="Featured Auction" src="https://storage.googleapis.com/a1aa/image/jnhYgXfD8XXmGiAryfwcgD1MYtXdoXRcHgGozTm2tedKCzQnA.jpg"/>
+            <h3 class="text-lg font-semibold mb-2">Astronaut</h3>
+            <div class="flex justify-between items-center mb-4"><p class="text-gray-600">Price per NFT</p><p class="text-blue-600 font-semibold">100 Player</p></div>
+            <div class="flex justify-between items-center mb-4"><p class="text-gray-600">Rewards</p><p class="text-blue-600 font-semibold">$500k</p></div>
+            <div class="flex justify-between items-center mb-4"><p class="text-gray-600">Starts in</p><p class="text-blue-600 font-semibold">02h 32m 44s</p></div>
+            <div class="flex justify-between items-center mb-4">
+              <p class="text-gray-600">Ticket</p>
+              <p class="text-blue-600 font-semibold">Thailand Travala Gateway</p>
+            </div>
+            <div class="flex justify-between items-center mb-4"><p class="text-gray-600">Access</p><p class="text-blue-600 font-semibold">PlayVerse Seed Round</p></div>
+            <div class="flex space-x-4">
+              <button class="px-4 py-2 bg-blue-600 text-white rounded-full">View Rewards</button>
+              <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full">View Collection</button>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-lg font-semibold">Recent Activity</h3>
+              <button class="px-4 py-2 bg-blue-600 text-white rounded-full">Today</button>
+            </div>
+            <div class="mb-4">
+              <div class="flex items-center mb-2">
+                <img class="w-10 h-10 rounded-full mr-4" alt="Activity 1" src="https://storage.googleapis.com/a1aa/image/IHgNFfM0D9SwVKuiRKrBV009IfDmlVyISbqFjZcCRBhIhZoTA.jpg"/>
+                <div>
+                  <p class="text-gray-800 font-semibold">Ocean Abstract</p>
+                  <p class="text-gray-400 text-sm">Bought by you for 0.09 ETH</p>
+                </div>
+              </div>
+              <p class="text-gray-400 text-sm">12m ago</p>
+            </div>
+            <div class="mb-4">
+              <div class="flex items-center mb-2">
+                <img class="w-10 h-10 rounded-full mr-4" alt="Activity 2" src="https://storage.googleapis.com/a1aa/image/IHgNFfM0D9SwVKuiRKrBV009IfDmlVyISbqFjZcCRBhIhZoTA.jpg"/>
+                <div>
+                  <p class="text-gray-800 font-semibold">Ocean Abstract</p>
+                  <p class="text-gray-400 text-sm">Bought by you for 0.09 ETH</p>
+                </div>
+              </div>
+              <p class="text-gray-400 text-sm">12m ago</p>
+            </div>
+            <div class="mb-4">
+              <div class="flex items-center mb-2">
+                <img class="w-10 h-10 rounded-full mr-4" alt="Activity 3" src="https://storage.googleapis.com/a1aa/image/IHgNFfM0D9SwVKuiRKrBV009IfDmlVyISbqFjZcCRBhIhZoTA.jpg"/>
+                <div>
+                  <p class="text-gray-800 font-semibold">Ocean Abstract</p>
+                  <p class="text-gray-400 text-sm">Bought by you for 0.09 ETH</p>
+                </div>
+              </div>
+              <p class="text-gray-400 text-sm">12m ago</p>
+            </div>
+            <button class="px-4 py-2 bg-blue-600 text-white rounded-full w-full">Show more</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
