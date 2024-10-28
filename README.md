@@ -189,7 +189,7 @@ Here are the deployed contract addresses:
    - GPUMarketplace deployed to: 0x7c9D4E3769FD085566de1DB20E5703D3Ec50d37f
    - Governance deployed to: 0xe34c86A03F17E29F77beeE7c898Adae4dD578006
 
-**Future Development**
+# Future Development
 - Decentralized Oracles: Integration with Chainlink or other oracle providers to bring real-world data into the governance system.
 - Optimized GPU Usage: Implement machine learning algorithms to optimize GPU usage based on real-time availability and demand.
 
