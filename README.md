@@ -176,7 +176,7 @@ Example test output:
       ✔ Should return zero for addresses with no reputation
 
 
-  25 passing (6s)
+  23 passing (6s)
 
 # Contract Deployment
 - Deploy Contracts: To deploy the contracts to a test network:
