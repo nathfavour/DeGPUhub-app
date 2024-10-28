@@ -13,24 +13,4 @@ module.exports = {
       accounts: [process.env.PRIVATE_KEY],
     },
   },
-
-//   sourcify: {
-//     enabled: true
-//   },
-
-//   etherscan: {
-//     apiKey: {
-//       scroll: process.env.ETHERSCAN_API_KEY,
-//     },
-//     customChains: [
-//       {
-//         network: 'scroll',
-//         chainId: 534351,
-//         urls: {
-//           apiURL: 'https://api-sepolia.scrollscan.com/api',
-//           browserURL: 'https://sepolia.scrollscan.com/',
-//         },
-//       },
-//     ],
-//   },
-} 
+}
