@@ -193,11 +193,11 @@ Here are the deployed contract addresses:
 - Decentralized Oracles: Integration with Chainlink or other oracle providers to bring real-world data into the governance system.
 - Optimized GPU Usage: Implement machine learning algorithms to optimize GPU usage based on real-time availability and demand.
 
-**License**
+# License
 
 This project is licensed under the MIT License. 
 
-**Acknowledgments**
+# Acknowledgments
 
 Special thanks to the Edge Matrix Chain (EMC) 2024 Q4 Hackathon organizers and sponsors for fostering innovation in the decentralized physical infrastructure and AI space.
 
