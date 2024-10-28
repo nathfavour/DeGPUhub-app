@@ -8,7 +8,6 @@ describe("ComputeToken Contract", function () {
     ComputeToken = await ethers.getContractFactory("ComputeToken");
     [owner, addr1, addr2] = await ethers.getSigners();
     computeToken = await ComputeToken.deploy(); // Deploy the contract
-    // No need for .deployed(), this is awaited here
   });
 
   it("Should deploy successfully and assign total supply to owner", async function () {
